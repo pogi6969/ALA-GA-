@@ -1,8 +1,7 @@
 name: Deploy website and app to GitHub Pages
 
+# Runs only when started by hand (Actions tab), after Settings → Pages → Source is set to GitHub Actions.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

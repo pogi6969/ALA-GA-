@@ -1,8 +1,8 @@
 {
   "name": "KALINGA Monitor",
   "short_name": "KALINGA",
-  "id": "app/",
-  "start_url": "app/",
+  "id": "app/index.html",
+  "start_url": "app/index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f4f6fa",

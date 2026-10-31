@@ -17,7 +17,12 @@ A low-cost, 3D-printed, Baymax-inspired touch-screen health pendant with GPS, 4G
 
 A low-cost wheeled soft inflatable companion robot for older adults home alone: NSTF RIM manuscript, PR2 deck, build guide, robot and pendant programs.
 
-## Publish the website and app
+## Open the website and app now (no setup)
+
+- Website: https://raw.githack.com/pogi6969/ALA-GA-/main/index.html
+- App: https://raw.githack.com/pogi6969/ALA-GA-/main/app/index.html
+
+## Publish on GitHub Pages (optional)
 
 Installing the app needs HTTPS. With GitHub Pages: **Settings → Pages → Build and deployment → Deploy from a branch → `main` and `/ (root)` → Save.**
 
