@@ -21,10 +21,9 @@
 #include "spo2_algorithm.h"
 
 // ---------- Family settings: edit before uploading ----------
-const char *WIFI_SSID = "YOUR_WIFI_NAME";
-const char *WIFI_PASS = "YOUR_WIFI_PASSWORD";
-const char *BOT_TOKEN = "YOUR_BOT_TOKEN";   // from @BotFather in Telegram
-const char *FAMILY_CHAT = "YOUR_CHAT_ID";   // family group chat id
+// Wi-Fi and Telegram keys live in secrets.h (not uploaded to GitHub).
+// Copy secrets.example.h to secrets.h and fill it in.
+#include "secrets.h"
 const char *ELDER = "Lola";                 // name used in messages
 
 enum TaskType { MEDS, VITALS, CHECKIN, WATER };

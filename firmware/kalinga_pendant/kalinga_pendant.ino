@@ -23,10 +23,9 @@
 #include "spo2_algorithm.h"
 
 // ---------- Settings: edit before uploading ----------
-const char *WIFI_SSID = "YOUR_WIFI_NAME", *WIFI_PASS = "YOUR_WIFI_PASSWORD";
-const char *API_KEY = "YOUR_FIREBASE_WEB_API_KEY";
-const char *DB_URL = "https://YOUR-PROJECT-default-rtdb.asia-southeast1.firebasedatabase.app";
-const char *DEVICE_EMAIL = "pendant@your-family.ph", *DEVICE_PASS = "a-long-device-password";
+// Wi-Fi, Firebase API key, database URL and device login live in secrets.h (not uploaded to GitHub).
+// Copy secrets.example.h to secrets.h and fill it in.
+#include "secrets.h"
 const char *PATIENT = "lola1";
 
 // ---------- Pins ----------
