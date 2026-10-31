@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KALINGA – Wearable Health Pendant and Family Monitoring App</title>
+<meta name="description" content="KALINGA is a low-cost 3D-printed touch-screen health pendant with GPS, 4G calling, vital-sign monitoring, timed pill dispensing, and the KALINGA Monitor family app.">
+<meta name="theme-color" content="#1f2a44">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="app/icon-192.png">
+<link rel="apple-touch-icon" href="app/icon-192.png">
+<style>
+:root{--ink:#1f2a44;--ink2:#334155;--bg:#f4f6fa;--card:#fff;--mut:#5b6474;--line:#e2e6ee;--red:#c0392b;--g:#1e9e5a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+img{max-width:100%;height:auto;display:block}a{color:var(--red)}
+.wrap{max-width:1080px;margin:auto;padding:0 16px}
+.top{position:sticky;top:0;z-index:9;background:rgba(31,42,68,.97);color:#fff}
+.top .wrap{display:flex;align-items:center;gap:14px;height:56px}.brand{display:flex;align-items:center;gap:8px;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none}
+.brand img{width:28px;height:28px;border-radius:8px}.top nav{margin-left:auto;display:flex;gap:16px;font-size:14px}.top nav a{color:#cbd5e1;text-decoration:none}
+@media(max-width:640px){.top nav a:not(.cta){display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:12px 18px;font:600 16px/1 inherit;cursor:pointer;text-decoration:none}
+.btn-red{background:var(--red);color:#fff}.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn-lg{padding:15px 22px;font-size:17px}
+.cta{background:var(--red);color:#fff!important;padding:7px 12px;border-radius:10px}
+.hero{background:linear-gradient(160deg,#1f2a44,#2f3d63);color:#fff;padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700;color:#fca5a5;margin:0 0 8px}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:0 0 14px}.hero p.lede{font-size:18px;color:#dbe3f0;margin:0 0 22px}
+.hero .shot{background:#fff;border-radius:22px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.badges span{background:rgba(255,255,255,.12);border-radius:99px;padding:5px 12px;font-size:14px}
+.section{padding:56px 0}.section.alt{background:#fff}.sec-head{max-width:720px;margin-bottom:26px}.sec-head h2{font-size:clamp(24px,3.4vw,34px);margin:0 0 8px;line-height:1.2}.sec-head p{color:var(--mut);margin:0}
+.get{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}@media(max-width:820px){.get{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.get-actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 8px}.install-status{min-height:1.4em;color:var(--g);font-weight:600;margin:6px 0}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0 0}@media(max-width:560px){.facts{grid-template-columns:repeat(2,1fr)}}
+.facts div{background:var(--bg);border-radius:12px;padding:10px}.facts dt{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}.facts dd{margin:2px 0 0;font-weight:700}
+.fine{font-size:14px;color:var(--mut)}
+.tabs{display:flex;gap:6px;margin:10px 0 12px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 14px;font:inherit;cursor:pointer;color:var(--ink)}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}ol.steps{margin:0;padding-left:22px}ol.steps li{margin:6px 0}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:820px){.feats{grid-template-columns:1fr 1fr}}@media(max-width:520px){.feats{grid-template-columns:1fr}}
+.feat h3{margin:6px 0;font-size:18px}.feat p{margin:0;color:var(--mut)}.feat .ic{font-size:26px}
+.screens{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:640px){.screens{grid-template-columns:1fr 1fr}}
+.screens figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px}.screens figcaption{text-align:center;font-size:14px;color:var(--mut);margin-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}@media(max-width:820px){.two{grid-template-columns:1fr}}
+.dl{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(max-width:560px){.dl{grid-template-columns:1fr}}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);font-weight:600}
+.dl a small{color:var(--mut);font-weight:400}
+.warn{background:#fff8e1;border:1px solid #f3dd9b;border-radius:14px;padding:14px 16px;color:#5c4400}
+footer{background:var(--ink);color:#cbd5e1;padding:32px 0;font-size:14px}footer a{color:#fff}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top"><img src="app/icon-192.png" alt="">KALINGA</a>
+  <nav><a href="#features">Features</a><a href="#pendant">Pendant</a><a href="#how">How it works</a><a href="#downloads">Downloads</a><a class="cta" href="#install">Get the app</a></nav>
+</div></header>
+
+<section class="hero" id="top"><div class="wrap">
+  <div>
+    <p class="eyebrow">Wearable health pendant + family app</p>
+    <h1>Care that stays with Lola and Lolo, even when the family is at work.</h1>
+    <p class="lede">KALINGA is a low-cost, 3D-printed, Baymax-inspired pendant with a round touch screen. It checks temperature, pulse, oxygen, and symptoms, counts steps, opens the right pill slot on time, shows where Lola is on a map, calls the family through 4G with one touch, and alerts everyone when there is a fall, an SOS, or a missed dose.</p>
+    <div class="get-actions"><a class="btn btn-red btn-lg" href="#install">Install the app</a><a class="btn btn-ghost btn-lg" href="app/">Open the app</a></div>
+    <div class="badges"><span>Free app</span><span>Works on Android, iPhone, and computers</span><span>GPS · 4G calls · touch screen</span><span>Demo mode, no pendant needed</span></div>
+  </div>
+  <div class="shot"><img src="assets/app-home.webp" width="480" height="960" alt="KALINGA Monitor home screen showing the pendant online, the latest check, and the next medicine"></div>
+</div></section>
+
+<section class="section alt" id="install"><div class="wrap">
+  <header class="sec-head"><p class="eyebrow" style="color:var(--red)">Get the app</p><h2>Install KALINGA Monitor</h2>
+    <p>Install the app straight from this page. It gets its own icon on your home screen, opens in its own window, and shows Lola's readings and alerts the moment the pendant sends them.</p></header>
+  <div class="get">
+    <div class="card">
+      <div class="get-actions">
+        <button type="button" class="btn btn-red btn-lg" id="install-btn">⬇ Install KALINGA Monitor</button>
+        <a class="btn btn-ghost btn-lg" href="app/">Open in browser</a>
+      </div>
+      <p class="install-status" id="install-status" role="status" aria-live="polite"></p>
+      <dl class="facts"><div><dt>Price</dt><dd>Free</dd></div><div><dt>Version</dt><dd>1.0</dd></div><div><dt>Size</dt><dd>Under 100 KB</dd></div><div><dt>Works on</dt><dd>Android, iPhone, computers</dd></div></dl>
+      <p class="fine">Tap <b>Try the demo</b> in the app to see every screen with sample data, with or without a pendant. To connect a real pendant, sign in with the family's Firebase account (see the engineering notebook, Entry 9).</p>
+      <p class="fine"><a href="app/index.html" download="KALINGA-Monitor.html">Download the app as one file</a> (KALINGA-Monitor.html). It opens in any browser without installing.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">How to install</h3>
+      <div class="tabs" role="tablist"><button role="tab" data-plat="android" aria-selected="true">Android</button><button role="tab" data-plat="ios" aria-selected="false">iPhone and iPad</button><button role="tab" data-plat="desktop" aria-selected="false">Computer</button></div>
+      <ol class="steps" data-steps="android"><li>Open this page in Chrome.</li><li>Tap <b>Install KALINGA Monitor</b>. If no window opens, tap the ⋮ menu, then <b>Install app</b> or <b>Add to Home screen</b>.</li><li>Tap Install. KALINGA appears on your home screen and in your app list.</li></ol>
+      <ol class="steps" data-steps="ios" hidden><li>Tap <b>Open in browser</b> to open the app in Safari.</li><li>Tap the Share button, the square with an arrow pointing up.</li><li>Tap <b>Add to Home Screen</b>, then Add.</li></ol>
+      <ol class="steps" data-steps="desktop" hidden><li>Open this page in Chrome or Microsoft Edge.</li><li>Click <b>Install KALINGA Monitor</b>, or the install icon at the right of the address bar.</li><li>Click Install. The app opens in its own window.</li></ol>
+      <p class="fine">To remove the app, uninstall it like any other app.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="section" id="features"><div class="wrap">
+  <header class="sec-head"><p class="eyebrow" style="color:var(--red)">Features</p><h2>One pendant for checks, medicine, and help</h2><p>Every screen below is from the working KALINGA Monitor app.</p></header>
+  <div class="feats">
+    <div class="card feat"><div class="ic">🌡️</div><h3>Vital-sign checks</h3><p>Forehead temperature without touching, and pulse rate and SpO₂ from a finger pad, twice a day or on demand.</p></div>
+    <div class="card feat"><div class="ic">💊</div><h3>Timed pill carousel</h3><p>Four slots open one at a time at their scheduled times. Each dose is logged as taken, late, or missed.</p></div>
+    <div class="card feat"><div class="ic">🚨</div><h3>Fall and SOS alerts</h3><p>Falls, a held SOS button, and long periods without movement reach the family's phones in seconds.</p></div>
+    <div class="card feat"><div class="ic">📍</div><h3>GPS and safe zone</h3><p>See Lola on a map. Leaving the safe zone around home sends an app alert and an SMS with a map link.</p></div>
+    <div class="card feat"><div class="ic">📞</div><h3>One-touch 4G calls</h3><p>Lola taps CALL to reach family; family calls are answered by the pendant. After a fall, it calls automatically.</p></div>
+    <div class="card feat"><div class="ic">👆</div><h3>Big touch screen</h3><p>A round color screen with three big buttons, CHECK, CALL, and SOS, and prompts in Filipino.</p></div>
+    <div class="card feat"><div class="ic">📈</div><h3>More than vital signs</h3><p>Pain score, dizziness, shortness of breath, chest pain, steps, and active minutes, with trends in the app.</p></div>
+    <div class="card feat"><div class="ic">📱</div><h3>Control from anywhere</h3><p>Edit medicines, contacts, and the safe zone, ask for a check now, call the pendant, or make it ring.</p></div>
+    <div class="card feat"><div class="ic">🔒</div><h3>Private by design</h3><p>Only the family's signed-in accounts can see the data, under Firebase rules and the Data Privacy Act.</p></div>
+  </div>
+  <div class="screens" style="margin-top:20px">
+    <figure><img src="assets/app-home.webp" loading="lazy" alt="Home screen"><figcaption>Home: status, latest check, next dose</figcaption></figure>
+    <figure><img src="assets/app-vitals.webp" loading="lazy" alt="Vitals screen with charts"><figcaption>Vitals: trends and every check</figcaption></figure>
+    <figure><img src="assets/app-meds.webp" loading="lazy" alt="Medicine screen"><figcaption>Medicine: schedule and dose log</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="section alt" id="pendant"><div class="wrap">
+  <header class="sec-head"><p class="eyebrow" style="color:var(--red)">The pendant</p><h2>Soft-looking, friendly, and 3D-printed</h2><p>About 66 × 91 × 43 mm, printed in white PLA with an original two-dot face and a 1.28-in round touch screen, worn on a breakaway cord.</p></header>
+  <div class="two"><img src="assets/pendant.webp" loading="lazy" alt="Labeled front view of the KALINGA pendant"><img src="assets/parts.webp" loading="lazy" alt="Exploded view of the back shell, pill carousel, and front shell"></div>
+</div></section>
+
+<section class="section" id="how"><div class="wrap">
+  <header class="sec-head"><p class="eyebrow" style="color:var(--red)">How it works</p><h2>From the pendant to the family's phone</h2><p>Readings, doses, and location go over home Wi-Fi to a Firebase database, and the app receives every change as a live stream. Calls and SMS alerts go through the 4G network, so they work outside the home too.</p></header>
+  <div class="card"><img src="assets/system.webp" loading="lazy" alt="Pendant to Firebase to app diagram"></div>
+  <p class="warn" style="margin-top:16px"><b>Important.</b> KALINGA is a student research prototype, not a medical device. It reminds, checks, and alerts; it does not diagnose or treat. Always follow the advice of a doctor or health worker.</p>
+</div></section>
+
+<section class="section alt" id="downloads"><div class="wrap">
+  <header class="sec-head"><p class="eyebrow" style="color:var(--red)">Downloads</p><h2>Build your own KALINGA</h2><p>Everything needed to print, wire, program, and test the pendant.</p></header>
+  <div class="dl">
+    <a href="RIM4_KALINGA_Engineering_Notebook.pdf" download>Engineering notebook <small>PDF</small></a>
+    <a href="RIM4_KALINGA_NSTF-SIE_Manuscript.pdf" download>Research manuscript (NSTF SIE) <small>PDF</small></a>
+    <a href="cad/front_shell.stl" download>Front shell <small>STL</small></a>
+    <a href="cad/back_shell.stl" download>Back shell <small>STL</small></a>
+    <a href="cad/pill_carousel.stl" download>Pill carousel <small>STL</small></a>
+    <a href="cad/kalinga_pendant.py" download>Shell design script <small>Python</small></a>
+    <a href="firmware/kalinga_pendant/kalinga_pendant.ino" download>Pendant program <small>Arduino</small></a>
+    <a href="app/database.rules.json" download>Firebase database rules <small>JSON</small></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b>KALINGA</b> · A Baymax-inspired wearable health pendant and family monitoring app. Science Innovation Expo entry, [School Name], Region V – Bicol.</p>
+  <p>Researchers: [Surname, Firstname M.], [Surname, Firstname M.], [Surname, Firstname M.] · Adviser: [Adviser Full Name]</p>
+  <p class="fine" style="color:#94a3b8">Inspired by the idea of a soft healthcare companion; the pendant's shape and face are the researchers' own design.</p>
+</div></footer>
+
+<script>
+(function () {
+  var prompt = null, status = document.getElementById("install-status");
+  var ua = navigator.userAgent, isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var plat = isIOS ? "ios" : /Android/.test(ua) ? "android" : "desktop";
+  function select(p) {
+    document.querySelectorAll("[data-plat]").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.plat === p); });
+    document.querySelectorAll("[data-steps]").forEach(function (o) { o.hidden = o.dataset.steps !== p; });
+  }
+  document.querySelectorAll("[data-plat]").forEach(function (b) { b.addEventListener("click", function () { select(b.dataset.plat); }); });
+  select(plat);
+  var installed = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+  if (installed) status.textContent = "KALINGA Monitor is installed on this device.";
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); prompt = e; });
+  window.addEventListener("appinstalled", function () { prompt = null; status.textContent = "Installed. Open KALINGA from your home screen or app list."; });
+  document.getElementById("install-btn").addEventListener("click", function () {
+    if (prompt) {
+      prompt.prompt();
+      prompt.userChoice.then(function (c) { status.textContent = c.outcome === "accepted" ? "Installing KALINGA Monitor…" : "Install cancelled. You can try again any time."; prompt = null; });
+      return;
+    }
+    status.textContent = isIOS ? "On iPhone and iPad, use Safari's Share button, then Add to Home Screen." : "Use your browser's menu: Install app or Add to Home screen.";
+    select(plat);
+  });
+  if ("serviceWorker" in navigator && window.isSecureContext) navigator.serviceWorker.register("sw.js").catch(function () {});
+})();
+</script>
+</body>
+</html>
